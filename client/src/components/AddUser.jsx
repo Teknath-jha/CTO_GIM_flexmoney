@@ -1,8 +1,54 @@
+import {
+  FormControl,
+  FormGroup,
+  InputLabel,
+  Input,
+  Typography,
+  styled,
+  Button,
+} from "@mui/material";
 
-
+const Container = styled(FormGroup)`
+  width: 50%;
+  margin: 5% auto 0 auto;
+  & > div {
+    margin-top: 20px;
+  }
+`;
 
 const AddUser = () => {
-    return <p>Hello from AddUser</p>
-}
+  const onValueChange = () => {
+    console.log("hello");
+  };
+
+  return (
+    <Container>
+      <Typography variant="h4">Add User</Typography>
+      <FormControl>
+        <InputLabel>Name</InputLabel>
+        <Input onChange={() => onValueChange()} />
+      </FormControl>
+      <FormControl>
+        <InputLabel>UserId</InputLabel>
+        <Input />
+      </FormControl>
+      <FormControl>
+        <InputLabel>Email</InputLabel>
+        <Input />
+      </FormControl>
+      <FormControl>
+        <InputLabel>Phone</InputLabel>
+        <Input />
+      </FormControl>
+      <FormControl>
+        <InputLabel>Batch</InputLabel>
+        <Input />
+      </FormControl>
+      <FormControl>
+        <Button variant="contained">ADD USER</Button>
+      </FormControl>
+    </Container>
+  );
+};
 
 export default AddUser;

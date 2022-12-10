@@ -1,8 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+<<<<<<< HEAD
 #credentials
 *.env
 
+=======
+>>>>>>> 23fbab02ee3fd93824b597771ecc6eb4ed5ca6ee
 # dependencies
 /node_modules
 /.pnp

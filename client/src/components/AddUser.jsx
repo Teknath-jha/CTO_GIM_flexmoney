@@ -25,7 +25,6 @@ const Container = styled(FormGroup)`
   }
 `;
 
-<<<<<<< HEAD
 const defaultValue = {
   name: "",
   email: "",
@@ -43,11 +42,6 @@ const AddUser = () => {
 
   const addUserDetails = async () => {
     await addUser(user);
-=======
-const AddUser = () => {
-  const onValueChange = () => {
-    console.log("hello");
->>>>>>> 23fbab02ee3fd93824b597771ecc6eb4ed5ca6ee
   };
 
   return (
@@ -55,31 +49,7 @@ const AddUser = () => {
       <Typography variant="h4">Add User</Typography>
       <FormControl>
         <InputLabel>Name</InputLabel>
-<<<<<<< HEAD
-        <Input onChange={(e) => onValueChange(e)} name="name" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Email</InputLabel>
-        <Input onChange={(e) => onValueChange(e)} name="email" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Phone</InputLabel>
-        <Input onChange={(e) => onValueChange(e)} name="phone" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Batch</InputLabel>
-        <Input onChange={(e) => onValueChange(e)} name="batch" />
-      </FormControl>
-      <FormControl>
-        <Button variant="contained" onClick={() => addUserDetails()}>
-          ADD USER
-        </Button>
-=======
         <Input onChange={() => onValueChange()} />
-      </FormControl>
-      <FormControl>
-        <InputLabel>UserId</InputLabel>
-        <Input />
       </FormControl>
       <FormControl>
         <InputLabel>Email</InputLabel>
@@ -95,7 +65,6 @@ const AddUser = () => {
       </FormControl>
       <FormControl>
         <Button variant="contained">ADD USER</Button>
->>>>>>> 23fbab02ee3fd93824b597771ecc6eb4ed5ca6ee
       </FormControl>
     </Container>
   );

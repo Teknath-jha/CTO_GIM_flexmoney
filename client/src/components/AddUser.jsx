@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { useState } from "react";
-=======
->>>>>>> 23fbab02ee3fd93824b597771ecc6eb4ed5ca6ee
 import {
   FormControl,
   FormGroup,
@@ -10,13 +7,12 @@ import {
   Typography,
   styled,
   Button,
+  Select,
+  MenuItem,
 } from "@mui/material";
 
-<<<<<<< HEAD
 import { addUser } from "../service/api";
 
-=======
->>>>>>> 23fbab02ee3fd93824b597771ecc6eb4ed5ca6ee
 const Container = styled(FormGroup)`
   width: 50%;
   margin: 5% auto 0 auto;
@@ -34,13 +30,18 @@ const defaultValue = {
 
 const AddUser = () => {
   const [user, setUser] = useState(defaultValue);
+  const [batch, setBatch] = useState("");
 
   const onValueChange = (e) => {
-    // console.log(e.target.name, e.target.value);
+    e.preventDefault();
+    console.log(e.target.name, e.target.value);
+    if (e.target.name === "batch" && e.target.value !== "")
+      setBatch(e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const addUserDetails = async () => {
+    console.log(user);
     await addUser(user);
   };
 
@@ -49,22 +50,36 @@ const AddUser = () => {
       <Typography variant="h4">Add User</Typography>
       <FormControl>
         <InputLabel>Name</InputLabel>
-        <Input onChange={() => onValueChange()} />
+        <Input onChange={(e) => onValueChange(e)} name="name" />
       </FormControl>
       <FormControl>
         <InputLabel>Email</InputLabel>
-        <Input />
+        <Input onChange={(e) => onValueChange(e)} name="email" />
       </FormControl>
       <FormControl>
         <InputLabel>Phone</InputLabel>
-        <Input />
+        <Input onChange={(e) => onValueChange(e)} name="phone" />
       </FormControl>
       <FormControl>
-        <InputLabel>Batch</InputLabel>
-        <Input />
+        <InputLabel>Select batch</InputLabel>
+        <Select
+          labelId="batch_id"
+          name="batch"
+          id="batch-select"
+          value={batch}
+          label="batch-label"
+          onChange={(e) => onValueChange(e)}
+        >
+          <MenuItem value={"A"}>A [5-6PM]</MenuItem>
+          <MenuItem value={"B"}>B [6-7AM]</MenuItem>
+          <MenuItem value={"C"}>C [7-8AM]</MenuItem>
+          <MenuItem value={"D"}>D [8-9AM]</MenuItem>
+        </Select>
       </FormControl>
       <FormControl>
-        <Button variant="contained">ADD USER</Button>
+        <Button variant="contained" onClick={() => addUserDetails()}>
+          ADD USER
+        </Button>
       </FormControl>
     </Container>
   );

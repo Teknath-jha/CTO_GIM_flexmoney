@@ -1,6 +1,7 @@
 import "./App.css";
 import AddUser from "./components/AddUser";
 import AllUsers from "./components/AllUsers";
+import EditUser from "./components/EditUser";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<AddUser />} />
         <Route path="/all" element={<AllUsers />} />
+        <Route path="/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>
   );

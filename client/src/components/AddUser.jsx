@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FormControl,
   FormGroup,
@@ -32,17 +33,19 @@ const AddUser = () => {
   const [user, setUser] = useState(defaultValue);
   const [batch, setBatch] = useState("");
 
+  const navigate = useNavigate();
+
   const onValueChange = (e) => {
     e.preventDefault();
-    console.log(e.target.name, e.target.value);
+    // console.log(e.target.name, e.target.value);
     if (e.target.name === "batch" && e.target.value !== "")
       setBatch(e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const addUserDetails = async () => {
-    console.log(user);
     await addUser(user);
+    navigate("/all");
   };
 
   return (
